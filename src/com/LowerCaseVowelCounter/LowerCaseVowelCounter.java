@@ -26,17 +26,21 @@ public class LowerCaseVowelCounter {
     private String strInput = "";
     private Scanner objInput = new Scanner(System.in);
 
+    public LowerCaseVowelCounter(){
+        UserInput();
+    }
+
     //get the user's input and return that value to other functions
     private String UserInput() {
         System.out.println("Type anything you'd like and I will determine how many lower-case vowels you typed.");
         System.out.println("Begin typing now: ");
         strInput = objInput.next();
+        VowelCounter();
         return strInput;
     }
 
     //count all of the vowels and non-vowels in the string
-    private void vowelCounter(){
-        UserInput();
+    private void VowelCounter(){
         for(int intIndex = 0; intIndex < strInput.length(); intIndex++) {
             switch (strInput.charAt(intIndex)) {
                 case 'a': //for every "a" add 1 to the "a" counter
@@ -58,14 +62,12 @@ public class LowerCaseVowelCounter {
                     intNotVowelCounter++;
                     break;
             }
-
         }
-
+        PrintVowelCounter();
     }
 
     //print the vowel count to the console
-    public void PrintVowelCounter(){
-        vowelCounter();
+    private void PrintVowelCounter(){
         System.out.println(
                 "Your lower-case vowel count is - \n" +
                         "a: " + intACounter + "\n" +
@@ -75,6 +77,7 @@ public class LowerCaseVowelCounter {
                         "u: " + intUCounter + "\n" +
                         "everything else: " + intNotVowelCounter + "\n");
         resetCounters();
+
     }
 
     //reset all the counters back to zero
@@ -85,5 +88,6 @@ public class LowerCaseVowelCounter {
         intOCounter = 0;
         intUCounter = 0;
         intNotVowelCounter = 0;
+        UserInput();
     }
 }

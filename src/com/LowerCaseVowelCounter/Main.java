@@ -6,7 +6,7 @@ public class Main {
         LowerCaseVowelCounter objLowerCase = new LowerCaseVowelCounter();
         //continue to ask the user to create a string, and count the vowels of the string. No exit enabled
         while (true){
-            objLowerCase.PrintVowelCounter();
+            objLowerCase.getClass();
         }
 
     }
